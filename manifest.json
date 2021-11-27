@@ -1,0 +1,29 @@
+{
+    "name": "WatFunds",
+    "description": "Utilities for viewing WatCard transactions/balances",
+    "version": "1.0",
+    "manifest_version": 3,
+    "content_scripts": [{
+        "matches": ["https://watcard.uwaterloo.ca/OneWeb/Financial/Transactions"],
+        "js": ["content.js"],
+        "run_at": "document_start"
+    }],
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "commands": {
+        "sum": {
+            "suggested_key": {
+                "default": "Alt+0"
+            },
+            "description": "sum all transaction amounts"
+        },
+        "sum-by-location": {
+            "suggested_key": {
+                "default": "Alt+1"
+            },
+            "description": "sum transaction amounts by location"
+        }
+    },
+    "permissions": ["activeTab"]
+}
